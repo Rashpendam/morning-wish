@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Wish</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Link to the Web App Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <!-- Theme color for mobile browser header -->
+  <meta name="theme-color" content="#ff9800">
+</head>
+<body>
+  <div class="app-shell">
+    <header>🌅 Daily Greeting</header>
+    <main class="content">
+      <h1 id="greeting">Loading...</h1>
+    </main>
+  </div>
+
+  <script>
+    // Logic to show the greeting based on time
+    const hour = new Date().getHours();
+    const greetingEl = document.getElementById('greeting');
+    if (hour < 12) greetingEl.textContent = "Good Morning! ☕";
+    else if (hour < 18) greetingEl.textContent = "Good Afternoon! ☀️";
+    else greetingEl.textContent = "Good Evening! 🌙";
+
+    // Register the Service Worker for offline capability
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registered!', reg))
+          .catch(err => console.error('Registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

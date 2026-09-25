@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #fff8e1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.app-shell {
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+header {
+  background: #ff9800;
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+}
+.content {
+  padding: 50px 20px;
+}
+h1 {
+  color: #e65100;
+  font-size: 2.5rem;
+}
